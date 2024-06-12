@@ -18,7 +18,7 @@ list_of_files = [
 "src/exception/exception.py",
 "tests/unit/__init__.py",
 "tests/unit/unit.py",
-"tests/integration/integration.py"
+"tests/integration/integration.py",
 "pyproject.toml",
 "setup.py",
 "setup.cfg",
@@ -32,10 +32,10 @@ list_of_files = [
 
 for filepath in list_of_files:
     filepath = Path(filepath)
-    file_dir, file = os.path.split(filepath)
+    file_dir, filename = os.path.split(filepath)
     if file_dir != "":
         os.makedirs(file_dir, exist_ok = True)
 
-    if (not os.path.exists(file)) or (os.path.getsize(file)==0):
-        with open(file, 'w') as f:
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
+        with open(filepath, 'w') as f:
             pass
